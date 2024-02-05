@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:lovechat/presentation/auth/auth_page.dart';
 import 'package:lovechat/presentation/auth/gender/gender_selection_screen.dart';
 import 'package:lovechat/presentation/auth/login/login_screen.dart';
+import 'package:lovechat/presentation/auth/register/register_screen.dart';
 import 'package:lovechat/presentation/main_screens/chat_screen.dart';
 import 'package:lovechat/presentation/main_screens/home_screen.dart';
 import 'package:lovechat/presentation/main_screens/matching_screen.dart';
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ChatScreen(),
+      home: AuthPage(),
     );
   }
 }

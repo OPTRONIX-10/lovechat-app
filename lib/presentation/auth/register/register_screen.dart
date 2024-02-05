@@ -1,34 +1,120 @@
 import 'package:flutter/material.dart';
+import 'package:glassmorphism/glassmorphism.dart';
 
 class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({super.key});
+  RegisterScreen({super.key, required this.switchAuthPage});
+
+  final VoidCallback switchAuthPage;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
+    return GlassmorphicContainer(
+      key: ValueKey(false),
+      width: 350,
+      height: 650,
+      borderRadius: 50,
+      blur: 2,
+      border: 1.5,
+      linearGradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Colors.white.withOpacity(0.0),
+            Colors.white.withOpacity(0.4),
+          ],
+          stops: [
+            0.1,
+            1,
+          ]),
+      borderGradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [
+          Color(0xFFffffff).withOpacity(0.6),
+          Color(0xFFFFFFFF).withOpacity(0.6),
+        ],
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
             TextFormField(
               keyboardType: TextInputType.phone,
-              decoration: const InputDecoration(
-                labelText: 'Phone number',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                  borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                ),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                    borderRadius: BorderRadius.all(Radius.circular(50.0))),
+                // fillColor: Colors.white,
+                // filled: true,
+                hintText: 'Enter your phone number',
+                hintStyle: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+                suffixIcon: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Send OTP',
+                      style: TextStyle(color: Colors.grey[800]),
+                    )),
               ),
             ),
+            SizedBox(height: 25),
             TextFormField(
               maxLength: 6,
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                labelText: 'OTP',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                // fillColor: Colors.white,
+                // filled: true,
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                    borderRadius: BorderRadius.all(Radius.circular(50.0))),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                  borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                ),
+                hintText: 'Enter OTP',
+                hintStyle: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
                 counterText: '',
+                suffixIcon: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Verify',
+                      style: TextStyle(color: Colors.grey[800]),
+                    )),
               ),
             ),
+            SizedBox(height: 25),
             ElevatedButton(
-              onPressed: () {},
-              child: const Text('Register'),
-            ),
+                onPressed: () {},
+                child: const Text(
+                  'Sign Up',
+                  style: TextStyle(color: Colors.black),
+                ),
+                style: ElevatedButton.styleFrom()),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('Already have an account?'),
+                TextButton(
+                  onPressed: () {
+                    switchAuthPage();
+                  },
+                  child: const Text(
+                    'Login',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ),
