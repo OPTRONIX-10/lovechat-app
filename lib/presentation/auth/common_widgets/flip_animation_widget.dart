@@ -23,17 +23,18 @@ class _FlipAnimationState extends State<FlipAnimation> {
   @override
   Widget build(BuildContext context) {
     return AnimatedSwitcher(
-        layoutBuilder: (widget, list) =>
-            Stack(children: [if (widget != null) widget, ...list]),
-        transitionBuilder: __transitionBuilder,
-        duration: Duration(milliseconds: 2600),
-        child: _showLoginPage
-            ? LoginScreen(
-                switchAuthPage: () => switchAuthPage(),
-              )
-            : RegisterScreen(switchAuthPage: () => switchAuthPage()),
-        switchInCurve: Curves.easeInBack,
-        switchOutCurve: Curves.easeInBack.flipped);
+      layoutBuilder: (widget, list) =>
+          Stack(children: [if (widget != null) widget, ...list]),
+      transitionBuilder: __transitionBuilder,
+      duration: Duration(milliseconds: 700),
+      child: _showLoginPage
+          ? LoginScreen(
+              switchAuthPage: () => switchAuthPage(),
+            )
+          : RegisterScreen(switchAuthPage: () => switchAuthPage()),
+      //switchInCurve: Curves.easeInBack,
+      //switchOutCurve: Curves.easeInBack.flipped
+    );
   }
 }
 
