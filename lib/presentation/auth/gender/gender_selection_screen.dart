@@ -1,10 +1,18 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lovechat/core/constants/constants.dart';
+import 'package:lovechat/presentation/auth/gender/widgets/camara.dart';
 
-class GenderSelectionScreen extends StatelessWidget {
+class GenderSelectionScreen extends StatefulWidget {
   const GenderSelectionScreen({super.key});
 
+  @override
+  State<GenderSelectionScreen> createState() => _GenderSelectionScreenState();
+}
+
+class _GenderSelectionScreenState extends State<GenderSelectionScreen> {
+  @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,18 +24,33 @@ class GenderSelectionScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Tap to detect Gender',
-                  //style: TextStyle(color: appTextColor, fontSize: 25),
-                ),
-                CircleAvatar(
-                  radius: 100,
-                  child: Text(
-                    'Scan Face',
-                    // style: TextStyle(color: appTextColor),
+                  'Tap to detect \nGender',
+                  style: TextStyle(
+                    fontSize: 35,
                   ),
+                  textAlign: TextAlign.center,
                 ),
                 SizedBox(
-                  height: 15,
+                  height: height1,
+                ),
+                GestureDetector(
+                  onTap: () async {
+                    await availableCameras().then((value) => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => CameraScreen(cameras: value))));
+                  },
+                  child: CircleAvatar(
+                      radius: 100.r,
+                      child: Text(
+                        'Scan Face',
+                        style: TextStyle(
+                          fontSize: 25,
+                        ),
+                      )),
+                ),
+                SizedBox(
+                  height: height1,
                 ),
                 Container(
                   height: 35.h,

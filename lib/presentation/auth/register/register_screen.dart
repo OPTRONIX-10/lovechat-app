@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:glassmorphism/glassmorphism.dart';
+import 'package:lovechat/core/constants/constants.dart';
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key, required this.switchAuthPage});
@@ -10,11 +12,11 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GlassmorphicContainer(
       key: ValueKey(false),
-      width: 350,
-      height: 650,
-      borderRadius: 50,
+      width: glassmorphismWidth,
+      height: glassmorphismHeight,
+      borderRadius: 50.r,
       blur: 2,
-      border: 1.5,
+      border: 1.5.r,
       linearGradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -64,7 +66,7 @@ class RegisterScreen extends StatelessWidget {
                     )),
               ),
             ),
-            SizedBox(height: 25),
+            SizedBox(height: height1),
             TextFormField(
               maxLength: 6,
               keyboardType: TextInputType.number,
@@ -92,7 +94,7 @@ class RegisterScreen extends StatelessWidget {
                     )),
               ),
             ),
-            SizedBox(height: 25),
+            SizedBox(height: height1),
             ElevatedButton(
                 onPressed: () {},
                 child: const Text(
