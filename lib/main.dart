@@ -12,15 +12,12 @@ import 'package:lovechat/presentation/main_screens/matching_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
-    
-    runApp(MyApp());
-  
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +26,10 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
-          theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
-          darkTheme:
-              ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
-          home: MatchingScreen()
-        );
+            theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
+            darkTheme:
+                ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
+            home: MatchingScreen());
       },
     );
   }

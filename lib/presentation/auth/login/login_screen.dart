@@ -100,7 +100,8 @@ class LoginScreen extends StatelessWidget {
                   'Login',
                   style: TextStyle(color: Colors.black),
                 ),
-                style: ElevatedButton.styleFrom()),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).colorScheme.onPrimary)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

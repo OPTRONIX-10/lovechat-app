@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lovechat/core/constants/constants.dart';
 
 class MatchingScreen extends StatelessWidget {
   const MatchingScreen({super.key});
@@ -6,6 +8,7 @@ class MatchingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.primaryContainer,
       body: SafeArea(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -15,28 +18,47 @@ class MatchingScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CircleAvatar(
-                  radius: 80,
+                  backgroundColor: Theme.of(context).colorScheme.primary,
+                  radius: 70.r,
                 ),
                 SizedBox(
-                  width: 20,
+                  width: 20.w,
                 ),
                 CircleAvatar(
-                  radius: 80,
+                  backgroundColor: Theme.of(context).colorScheme.primary,
+                  radius: 70.r,
                 )
               ],
             ),
           ),
           SizedBox(
-            height: 20,
+            height: height1,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton(onPressed: () {}, child: Text('Cancel')),
-              SizedBox(
-                width: 20,
+              ElevatedButton(
+                onPressed: () {},
+                child: Text('Cancel',
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.primaryContainer,
+                        fontSize: 16.sp)),
+                style: ElevatedButton.styleFrom(
+                    fixedSize: Size(100.w, 40.h),
+                    backgroundColor: Theme.of(context).colorScheme.primary),
               ),
-              ElevatedButton(onPressed: () {}, child: Text('Chat'))
+              SizedBox(
+                width: 80.w,
+              ),
+              ElevatedButton(
+                  onPressed: () {},
+                  child: Text('Chat',
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.primaryContainer,
+                          fontSize: 16.sp)),
+                  style: ElevatedButton.styleFrom(
+                      fixedSize: Size(100.w, 40.h),
+                      backgroundColor: Theme.of(context).colorScheme.primary))
             ],
           )
         ],

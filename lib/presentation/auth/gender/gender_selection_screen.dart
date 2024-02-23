@@ -1,4 +1,5 @@
 import 'package:camera/camera.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lovechat/core/constants/constants.dart';
@@ -16,6 +17,7 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.primaryContainer,
       body: SafeArea(
         child: Center(
           child: Container(
@@ -41,13 +43,18 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen> {
                             builder: (_) => CameraScreen(cameras: value))));
                   },
                   child: CircleAvatar(
+                      backgroundColor: Theme.of(context).colorScheme.primary,
                       radius: 100.r,
-                      child: Text(
-                        'Scan Face',
-                        style: TextStyle(
-                          fontSize: 25,
+                      child: Stack(children: [
+                        Center(
+                            child: Icon(CupertinoIcons.viewfinder, size: 170)),
+                        Center(
+                          child: Icon(
+                            Icons.face_2_rounded,
+                            size: 90,
+                          ),
                         ),
-                      )),
+                      ])),
                 ),
                 SizedBox(
                   height: height1,
@@ -56,6 +63,7 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen> {
                   height: 35.h,
                   width: 120.w,
                   decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.primary,
                     borderRadius: BorderRadius.circular(18.r),
                     border: Border.all(
                         width: 2.5.w,
@@ -67,7 +75,8 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen> {
                       'Male',
                       style: TextStyle(
                           fontSize: 18.sp,
-                          color: Theme.of(context).colorScheme.primary),
+                          color:
+                              Theme.of(context).colorScheme.primaryContainer),
                     ),
                   ),
                 )
